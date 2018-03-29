@@ -147,12 +147,12 @@ resource "aws_route" "private_nat_gateway" {
   nat_gateway_id          = "${element(aws_nat_gateway.this.*.id, count.index)}"
 }
 
-resource "aws_route" "private_egress_only_gateway" {
-  count                       = "${var.enable_nat_gateway == "true" ? var.private_subnet_count : 0}"
-  route_table_id              = "${element(aws_route_table.private.*.id, count.index)}"
-  destination_ipv6_cidr_block = "::/0"
-  egress_only_gateway_id      = "${element(aws_egress_only_internet_gateway.eigw.*.id, count.index)}"
-}
+#resource "aws_route" "private_egress_only_gateway" {
+#  count                       = "${var.enable_nat_gateway == "true" ? var.private_subnet_count : 0}"
+#  route_table_id              = "${element(aws_route_table.private.*.id, count.index)}"
+#  destination_ipv6_cidr_block = "::/0"
+#  egress_only_gateway_id      = "${element(aws_egress_only_internet_gateway.eigw.*.id, count.index)}"
+#}
 
 
 ##################
@@ -263,13 +263,13 @@ resource "aws_nat_gateway" "this" {
   depends_on = ["aws_internet_gateway.this"]
 }
 
-resource "aws_route" "private_nat_gateway" {
-  count = "${var.create_vpc && var.enable_nat_gateway ? length(var.private_subnets) : 0}"
-
-  route_table_id         = "${element(aws_route_table.private.*.id, count.index)}"
-  destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = "${element(aws_nat_gateway.this.*.id, count.index)}"
-}
+#resource "aws_route" "private_nat_gateway" {
+#  count = "${var.create_vpc && var.enable_nat_gateway ? length(var.private_subnets) : 0}"
+#
+#  route_table_id         = "${element(aws_route_table.private.*.id, count.index)}"
+#  destination_cidr_block = "0.0.0.0/0"
+#  nat_gateway_id         = "${element(aws_nat_gateway.this.*.id, count.index)}"
+#}
 
 ######################
 # VPC Endpoint for S3

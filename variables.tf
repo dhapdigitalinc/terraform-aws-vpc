@@ -249,3 +249,24 @@ variable "default_vpc_tags" {
   description = "Additional tags for the Default VPC"
   default     = {}
 }
+
+
+variable "public_propagating_vgws" {
+  description = "TODO"
+  default     = 0
+}
+
+variable "private_propagating_vgws" {
+  description = "TODO"
+  default     = 0
+}
+
+variable "private_subnet_count" {
+  description = "TODO"
+  default     = 0
+}
+
+variable "public_subnet_count" {
+  description = "TODO"
+  default     = 0
+}
