@@ -123,21 +123,25 @@ variable "propagate_public_route_tables_vgw" {
 }
 
 variable "tags" {
+  type        = "map"
   description = "A map of tags to add to all resources"
   default     = {}
 }
 
 variable "vpc_tags" {
+  type        = "map"
   description = "Additional tags for the VPC"
   default     = {}
 }
 
 variable "public_subnet_tags" {
+  type        = "map"
   description = "Additional tags for the public subnets"
   default     = {}
 }
 
 variable "private_subnet_tags" {
+  type        = "map"
   description = "Additional tags for the private subnets"
   default     = {}
 }
@@ -148,38 +152,44 @@ variable "default_route_table_tags" {
 }
 
 variable "public_route_table_tags" {
+  type        = "map"
   description = "Additional tags for the public route tables"
   default     = {}
 }
 
 variable "private_route_table_tags" {
+  type        = "map"
   description = "Additional tags for the private route tables"
   default     = {}
 }
 
 variable "database_subnet_tags" {
+  type        = "map"
   description = "Additional tags for the database subnets"
   default     = {}
 }
 
 variable "redshift_subnet_tags" {
+  type        = "map"
   description = "Additional tags for the redshift subnets"
   default     = {}
 }
 
 variable "elasticache_subnet_tags" {
+  type        = "map"
   description = "Additional tags for the elasticache subnets"
   default     = {}
 }
 
 variable "dhcp_options_tags" {
+  type        = "map"
   description = "Additional tags for the DHCP option set"
   default     = {}
 }
 
 variable "enable_dhcp_options" {
   description = "Should be true if you want to specify a DHCP options set with a custom domain name, DNS servers, NTP servers, netbios servers, and/or netbios server type"
-  default     = false
+  default     = true
 }
 
 variable "dhcp_options_domain_name" {
