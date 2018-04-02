@@ -250,7 +250,6 @@ variable "default_vpc_tags" {
   default     = {}
 }
 
-
 variable "public_propagating_vgws" {
   description = "TODO"
   default     = 0
