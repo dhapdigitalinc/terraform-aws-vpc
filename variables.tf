@@ -19,11 +19,13 @@ variable "instance_tenancy" {
 }
 
 variable "public_subnets" {
+  type        = "list"
   description = "A list of public subnets inside the VPC"
   default     = []
 }
 
 variable "private_subnets" {
+  type        = "list"
   description = "A list of private subnets inside the VPC"
   default     = []
 }
@@ -52,6 +54,7 @@ variable "create_database_subnet_group" {
 }
 
 variable "azs" {
+  type        = "list"
   description = "A list of availability zones in the region"
   default     = []
 }
@@ -147,6 +150,7 @@ variable "private_subnet_tags" {
 }
 
 variable "default_route_table_tags" {
+  type        = "map"
   description = "Additional tags for the default route table"
   default     = {}
 }
@@ -246,6 +250,7 @@ variable "default_vpc_enable_classiclink" {
 }
 
 variable "default_vpc_tags" {
+  type        = "map"
   description = "Additional tags for the Default VPC"
   default     = {}
 }
