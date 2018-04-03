@@ -165,8 +165,8 @@ resource "aws_subnet" "database" {
   cidr_block        = "${var.database_subnets[count.index]}"
   availability_zone = "${element(var.azs, count.index)}"
 
-  assign_ipv6_address_on_creation = true
-  ipv6_cidr_block                 = "${cidrsubnet(aws_vpc.this.ipv6_cidr_block,8,count.index+21)}"
+#  assign_ipv6_address_on_creation = true
+#  ipv6_cidr_block                 = "${cidrsubnet(aws_vpc.this.ipv6_cidr_block,8,count.index+21)}"
 
   tags = "${merge(var.tags, var.database_subnet_tags, map("Name", format("%s-db-%s", var.name, element(var.azs, count.index))))}"
 }
@@ -190,8 +190,8 @@ resource "aws_subnet" "redshift" {
   vpc_id                          = "${aws_vpc.this.id}"
   cidr_block                      = "${cidrsubnet(aws_vpc.this.cidr_block,8,count.index+31)}"
   availability_zone               = "${element(var.azs, count.index)}"
-  assign_ipv6_address_on_creation = true
-  ipv6_cidr_block                 = "${cidrsubnet(aws_vpc.this.ipv6_cidr_block,8,count.index+31)}"
+#  assign_ipv6_address_on_creation = true
+#  ipv6_cidr_block                 = "${cidrsubnet(aws_vpc.this.ipv6_cidr_block,8,count.index+31)}"
 
   tags = "${merge(var.tags, var.redshift_subnet_tags, map("Name", format("%s-redshift-%s", var.name, element(var.azs, count.index))))}"
 }
@@ -215,8 +215,8 @@ resource "aws_subnet" "elasticache" {
   vpc_id                          = "${aws_vpc.this.id}"
   cidr_block                      = "${cidrsubnet(aws_vpc.this.cidr_block,8,count.index+41)}"
   availability_zone               = "${element(var.azs, count.index)}"
-  assign_ipv6_address_on_creation = true
-  ipv6_cidr_block                 = "${cidrsubnet(aws_vpc.this.ipv6_cidr_block,8,count.index+41)}"
+#  assign_ipv6_address_on_creation = true
+#  ipv6_cidr_block                 = "${cidrsubnet(aws_vpc.this.ipv6_cidr_block,8,count.index+41)}"
 
   tags = "${merge(var.tags, var.elasticache_subnet_tags, map("Name", format("%s-elasticache-%s", var.name, element(var.azs, count.index))))}"
 }

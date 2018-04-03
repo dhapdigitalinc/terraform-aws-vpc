@@ -245,10 +245,10 @@ output "default_vpc_main_route_table_id" {
   value       = "${element(concat(aws_default_vpc.this.*.main_route_table_id, list("")), 0)}"
 }
 
-output "vpc_ipv6_cidr_block" {
-  description = "TODO"
-  value       = ""
-}
+#output "vpc_ipv6_cidr_block" {
+#  description = "TODO"
+#  value       = ""
+#}
 
 //output "default_vpc_ipv6_association_id" {
 //  description = "The association ID for the IPv6 CIDR block"
